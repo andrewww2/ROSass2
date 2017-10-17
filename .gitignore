@@ -1,0 +1,4 @@
+#ignore huge bag files
+*.bag
+*.pdf
+*.docx
