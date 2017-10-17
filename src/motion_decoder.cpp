@@ -26,7 +26,7 @@ float mapY(float y){
 
 void apriltag_detection_callback(const apriltags_ros::AprilTagDetectionArray msg)
 {
- 
+ 	//REMOVE THIS SHIT GIT!
 	   //ROS_INFO("Yea boi");
 	  //TODO: Parse message and publish transforms as apriltag_tf and camera
 	for (int i = 0; i < msg.detections.size(); i++){
