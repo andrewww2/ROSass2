@@ -35,11 +35,15 @@ public:
 
   void setTagLocations(float x_det, float y_det, float z_det)
   {
+  	//TODO: Update tag locations
 	myX = x_det;
 	myY = y_det;
 	myZ = z_det;
 	
-	  //TODO: Update tag locations
+	//add x and y to vectors
+	x_arr.push_back(myX);
+	y_arr.push_back(myY);
+	
   }
 
   void imageCb(const sensor_msgs::ImageConstPtr& msg)
@@ -55,9 +59,14 @@ public:
       return;
     }
 
-	//TODO: Draw circles at tag locations on image. 
-    if (cv_ptr->image.rows > 60 && cv_ptr->image.cols > 60)
-     cv::circle(cv_ptr->image, cv::Point(myX, myY), 10, CV_RGB(255,0,0));
+    //TODO: Draw circles at tag locations on image. 
+    //IT'S BEEN HANDLED
+    if (cv_ptr->image.rows > 60 && cv_ptr->image.cols > 60){
+	for (int i = 0; i < x_arr.size() && i < y_arr.size(); i++){
+		cv::circle(cv_ptr->image, cv::Point(x_arr[i], y_arr[i]), 10, CV_RGB(0,255,0));
+	}
+    }
+   
 
     // Update GUI Window
     cv::imshow(OPENCV_WINDOW, cv_ptr->image);
